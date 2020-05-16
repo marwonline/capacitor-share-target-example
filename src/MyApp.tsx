@@ -2,7 +2,7 @@ import React, {ReactElement, useEffect} from "react";
 import {Provider} from 'react-redux'
 
 import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
-import {IShareTargetPlugin, ShareTargetEventData} from "@marwonline/capacitor-share-target/src";
+import {loadAllFiles, IShareTargetPlugin, ShareTargetEventData} from "@marwonline/capacitor-share-target";
 
 import {Home} from './views/Home';
 
@@ -10,7 +10,6 @@ import {Plugins} from '@capacitor/core';
 import styled from "@emotion/styled";
 import {DeviceView} from "./views/DeviceView";
 import store, {ingestIntent} from "./redux/store";
-import {loadAllFiles} from "@marwonline/capacitor-share-target";
 
 const {SplashScreen} = Plugins;
 const ShareTargetPlugin = Plugins.ShareTargetPlugin as IShareTargetPlugin;
