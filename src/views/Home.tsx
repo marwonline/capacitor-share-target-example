@@ -11,7 +11,7 @@ import {
 
 function Payload(props: { data: ShareAsset }): ReactElement | null {
   if (isTextAsset(props.data)) {
-    return <span>props.data.text</span>;
+    return <span>{props.data.text}</span>;
   }
   if (isImageAsset(props.data)) {
     return <>
