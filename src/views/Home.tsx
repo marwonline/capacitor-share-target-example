@@ -2,19 +2,12 @@ import React, {ReactElement} from 'react';
 import {useSelector} from 'react-redux';
 import {IntentState} from '../redux/store';
 import {
-  ImageAsset,
+  isTextAsset,
   ShareAsset,
   ShareTargetEventData,
-  TextAsset
+  isImageAsset
 } from "@marwonline/capacitor-share-target/src/definitions";
 
-function isTextAsset(data: ShareAsset): data is TextAsset {
-  return data.assetType === 'text';
-}
-
-function isImageAsset(data: ShareAsset): data is ImageAsset {
-  return data.assetType === 'image';
-}
 
 function Payload(props: { data: ShareAsset }): ReactElement | null {
   if (isTextAsset(props.data)) {
@@ -23,7 +16,7 @@ function Payload(props: { data: ShareAsset }): ReactElement | null {
   if (isImageAsset(props.data)) {
     return <>
       {props.data.uri} <br/>
-      <img src={props.data.uri}/>
+      <img src={`data:image/jpeg;base64, ${props.data.base64}`}/>
     </>;
   }
   return null;
