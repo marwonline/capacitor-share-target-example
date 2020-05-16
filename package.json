@@ -23,6 +23,7 @@
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
     "@marwonline/capacitor-share-target": "https://github.com/marwonline/capacitor-share-target.git",
+    "@types/react-redux": "^7.1.8",
     "react": "^16.8.6",
     "react-contenteditable": "^3.3.2",
     "react-dom": "^16.8.6",
