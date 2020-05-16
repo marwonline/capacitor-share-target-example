@@ -10,16 +10,20 @@ import {Plugins} from '@capacitor/core';
 import styled from "@emotion/styled";
 import {DeviceView} from "./views/DeviceView";
 import store, {ingestIntent} from "./redux/store";
+import {loadAllFiles} from "@marwonline/capacitor-share-target";
 
 const {SplashScreen} = Plugins;
 const ShareTargetPlugin = Plugins.ShareTargetPlugin as IShareTargetPlugin;
+
 
 if (ShareTargetPlugin) {
   ShareTargetPlugin.addListener('text', (data: ShareTargetEventData) => {
     store.dispatch(ingestIntent(data));
   });
   ShareTargetPlugin.addListener('image', (data: ShareTargetEventData) => {
-    store.dispatch(ingestIntent(data));
+    loadAllFiles(data).then((dataWithContent) => {
+      store.dispatch(ingestIntent(dataWithContent));
+    });
   });
 }
 
