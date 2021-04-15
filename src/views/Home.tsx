@@ -13,10 +13,15 @@ function Payload(props: { data: ShareAsset }): ReactElement | null {
   if (isTextAsset(props.data)) {
     return <span>{props.data.text}</span>;
   }
-  if (isFileAsset(props.data) && props.data.mimeType.startsWith('image/')) {
+  if (isFileAsset(props.data)) {
     return <>
       {props.data.uri} <br/>
-      <img src={`data:image/jpeg;base64, ${props.data.base64}`}/>
+      {props.data.mimeType.startsWith('image/') &&
+      <img src={`data:image/jpeg;base64, ${props.data.base64}`} style={{
+        width: '200px',
+        border: '1px solid black',
+      }}
+      />}
     </>;
   }
   return null;
