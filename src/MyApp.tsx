@@ -19,8 +19,8 @@ if (ShareTargetPlugin) {
   ShareTargetPlugin.addListener('text', (data: ShareTargetEventData) => {
     store.dispatch(ingestIntent(data));
   });
-  ShareTargetPlugin.addListener('image', (data: ShareTargetEventData) => {
-    loadAllFiles(data).then((dataWithContent) => {
+  ShareTargetPlugin.addListener('file', (data: ShareTargetEventData) => {
+    loadAllFiles(data).then((dataWithContent: ShareTargetEventData) => {
       store.dispatch(ingestIntent(dataWithContent));
     });
   });
