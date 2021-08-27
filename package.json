@@ -17,9 +17,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/android": "^2.1.0",
-    "@capacitor/cli": "^2.1.0",
-    "@capacitor/core": "^2.1.0",
+    "@capacitor/android": "^2.4.8",
+    "@capacitor/cli": "^2.4.8",
+    "@capacitor/core": "^2.4.8",
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
     "@marwonline/capacitor-share-target": "https://github.com/marwonline/capacitor-share-target.git",
